@@ -1,0 +1,57 @@
+#app
+  #homeanimation(v-if="isShow")
+    .containerHomeAnimation(onclick)
+      .top1
+      .bottom1
+      .center1
+        h2 Welcome
+        h3 To
+        h2 ZUzu Creation
+        b-img.logoimg(src="../public/img/logo.png", width="100px")
+        br
+        b-icon.my-1.toHome(
+          icon="arrow-right-circle-fill",
+          variant="warning",
+          font-scale="3",
+          @click="toggleWelcome"
+        )
+        //- toggleWelcome切換
+  #appMain(v-else)
+    b-navbar.row.flex-wrap.mb-2
+      .logobackground.col-12
+        router-link(to="/")
+          b-img#logo(src="../public/img/logo.png")
+      #menu02.row.no-gutters.justify-content-center.col-12
+        router-link.menu-left(to="/announcement")
+          .row.no-gutters
+            span.col-12.col-md-6 活動
+            span.col-12.col-md-6 公告
+        router-link(to="/shop")
+          .row.no-gutters
+            span.col-12.col-md-6 原創
+            span.col-12.col-md-6 商品
+        router-link(to="/collection")
+          .row.no-gutters
+            span.col-12.col-md-6 作品
+            span.col-12.col-md-6 展示
+        router-link(to="/notice")
+          .row.no-gutters
+            span.col-12.col-md-6 購物
+            span.col-12.col-md-6 說明
+    HomeMenu
+    vue-page-transition(name="fade-in-down")
+      router-view(:screenWidth="screenWidth")
+    #footer
+      h5 © 2020 ZUzu Creation Shop. All Rights Reserved.
+      .footer-contact
+        h4 Contact us
+        b-link(href="http://line.me/ti/p/@zuzucreation", target="_blank")
+          img(src="../public/img/line-messenger.svg", width="50px")
+      .footer-connect
+        h4 Follow us
+        b-link(
+          href="https://www.instagram.com/accounts/login/?next=/zuzuzuzu_tw/",
+          target="_blank"
+        )
+          img(src="../public/img/instagram-2-1.svg", width="50px")
+      img.wavefooter(:src="require('./assets/image/wave (1).svg')")
